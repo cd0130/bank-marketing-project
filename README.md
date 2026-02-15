@@ -14,23 +14,21 @@
 
 # 🅐 Problem Statement
 
-The goal of this project is to build and evaluate multiple Machine Learning models to predict whether a bank customer will **subscribe to a term deposit**.  
-The prediction is based on customer demographic and past marketing interaction features from the **UCI Bank Marketing Dataset**.
+The goal of this project is to build and evaluate multiple Machine Learning models to predict whether a bank customer will **subscribe to a term deposit**. The prediction is based on customer demographic and past marketing interaction features from the **UCI Bank Marketing Dataset**.
 
 A Streamlit web app is developed to allow users to:
 
 - Upload a **test dataset** (CSV)  
 - Select a **pre‑trained ML model**  
 - View **evaluation metrics**  
-- Inspect **confusion matrix** and **classification report**  
-- Download predictions when no target column is present  
+- Inspect **confusion matrix** and **classification report** 
 
 Model training is done offline in a Jupyter notebook.  
 The Streamlit application performs **inference only**.
 
 ---
 
-# 🅑 Dataset Description *(1 mark)*
+# 🅑 Dataset Description
 
 The dataset used is the **UCI Bank Marketing Dataset**, sourced from direct marketing phone campaigns conducted by a Portuguese bank.
 
@@ -45,7 +43,7 @@ A small **balanced test file (~200 rows)** is included in `data/test_sample.csv`
 
 ---
 
-# 🅒 Models Used & Comparison Table *(6 marks)*  
+# 🅒 Models Used & Comparison Table
 
 The following **six models** were trained:
 
@@ -71,7 +69,7 @@ The following **six models** were trained:
 
 ---
 
-# 🅓 Observations on Model Performance *(3 marks)*
+# 🅓 Observations on Model Performance
 
 | **ML Model** | **Observation about model performance** |
 |--------------|------------------------------------------|
@@ -82,104 +80,7 @@ The following **six models** were trained:
 | **Random Forest (Ensemble)** | Stable, strong model. Excellent AUC (0.7983). Good precision/recall balance. Resistant to overfitting. |
 | **XGBoost (Ensemble)** | **Highest AUC (0.8017)** and strong recall. Captures complex non‑linear relationships. Best overall balanced model. |
 
----
-
-# 📘 Project Overview
-
-This project applies various ML classifiers to predict term deposit subscription using Python and scikit-learn — deployed using Streamlit.
-
-The app provides:
-
-- Evaluation metrics  
-- Confusion matrices  
-- Classification reports  
-- Clean UI to test multiple ML models  
-
----
-
-# 📂 Repository Structure
-Includes:
-
-Precision
-Recall
-F1‑score
-Support
-Macro average
-Weighted average
-Overall accuracy
-
-
-📦 5. Repository Structure
-bank-marketing-project/
-│
-├── app.py                     # Streamlit app
-├── requirements.txt           # Dependencies for Streamlit Cloud
-├── README.md                  # Project documentation
-│
-├── data/
-│   └── test_sample.csv        # Small test sample for Quick Download (200 rows)
-│
-└── model/
-    ├── model_logreg.joblib
-    ├── model_tree.joblib
-    ├── model_nb.joblib
-    ├── model_xgb.joblib
-    └── feature_columns.json   # Encoded feature names
-
-(Large models like Random Forest or KNN are NOT included due to GitHub & Streamlit limits.)
-
-🚀 6. Deployment Instructions (Streamlit Cloud)
-
-Push this repository to a public GitHub repo.
-Visit https://share.streamlit.io
-Click New App
-Select:
-
-Repository: your GitHub repo
-Branch: main
-App file: app.py
-
-
-Click Deploy
-
-The app will build automatically and give a shareable public URL.
-
-▶️ 7. How to Run the App Locally
-Create a virtual environment and install dependencies:
-Shellpip install -r requirements.txtShow more lines
-Then run:
-Shellstreamlit run app.pyShow more lines
-
-📑 8. How to Use the App
-
-Download the sample test CSV from the app.
-Upload your test CSV (same schema as the training data).
-Choose a model from the dropdown.
-View:
-
-Evaluation metrics
-Confusion matrix
-Classification report
-
-
-Optionally download prediction results when no target column is present.
-
-
-🧠 9. Training Notebook (Offline)
-All training, preprocessing, and model saving is done in:
-model_building.ipynb
-
-This notebook:
-
-Preprocesses training data
-Trains all models
-Evaluates performance
-Saves .joblib artifacts
-Generates a small test CSV
-Extracts encoded feature names
-
-
-🏁 10. Acknowledgements
+# Acknowledgements
 Dataset Source:
 UCI Machine Learning Repository – Bank Marketing Dataset
 https://archive.ics.uci.edu/dataset/222/bank+marketing
