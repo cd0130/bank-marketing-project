@@ -81,9 +81,7 @@ The following **six models** were trained:
 | **XGBoost (Ensemble)** | **Highest AUC (0.8017)** and strong recall. Captures complex non‑linear relationships. Best overall balanced model. |
 
 # Acknowledgements
-Dataset Source:
-UCI Machine Learning Repository – Bank Marketing Dataset
-https://archive.ics.uci.edu/dataset/222/bank+marketing
+Dataset Source: UCI Machine Learning Repository – Bank Marketing Dataset https://archive.ics.uci.edu/dataset/222/bank+marketing
 Streamlit: https://streamlit.io
 scikit‑learn: https://scikit-learn.org
 XGBoost: https://xgboost.readthedocs.io
