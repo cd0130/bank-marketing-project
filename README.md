@@ -2,6 +2,12 @@
 Author: Chinmay Das (2025AA05677)
 Course: Machine Learning
 
+## Live Demo
+
+- **Streamlit App:** https://bank-marketing-project-9rxqqtmagcw8thcd8ygwfm.streamlit.app  
+- **GitHub Repository:** https://github.com/cd0130/bank-marketing-project
+
+
 🔍 1. Project Overview
 This project implements a Machine Learning classification system built using Python, scikit‑learn, and deployed as an interactive Streamlit web application.
 The goal is to predict whether a customer will subscribe to a term deposit (target: y) using the UCI Bank Marketing Dataset.
