@@ -1,75 +1,103 @@
-📘 ML Classifier Web App – Bank Marketing Dataset
-Author: Chinmay Das (2025AA05677)
-Course: Machine Learning
 
-## Live Demo
+# 📘 ML Classifier Web App – Bank Marketing Dataset  
+**Author:** Chinmay Das (2025AA05677)  
+**Course:** Machine Learning  
+
+---
+
+## 🔗 Live Demo
 
 - **Streamlit App:** https://bank-marketing-project-9rxqqtmagcw8thcd8ygwfm.streamlit.app  
-- **GitHub Repository:** https://github.com/cd0130/bank-marketing-project
+- **GitHub Repository:** https://github.com/cd0130/bank-marketing-project  
 
+---
 
-🔍 1. Project Overview
-This project implements a Machine Learning classification system built using Python, scikit‑learn, and deployed as an interactive Streamlit web application.
-The goal is to predict whether a customer will subscribe to a term deposit (target: y) using the UCI Bank Marketing Dataset.
-The app evaluates multiple pre‑trained models on uploaded test data and provides:
-✔ Evaluation metrics
-✔ Confusion matrix
-✔ Classification report
-✔ Downloadable sample test data
-The focus is on model inference, not training. Model training is performed offline in a separate notebook.
+# 🅐 Problem Statement
 
-📂 2. Dataset Description
-The dataset used in training is the UCI Bank Marketing Dataset (semicolon ; separated).
-It contains information collected from direct marketing phone campaigns conducted by a Portuguese bank.
-Key details
+The goal of this project is to build and evaluate multiple Machine Learning models to predict whether a bank customer will **subscribe to a term deposit**.  
+The prediction is based on customer demographic and past marketing interaction features from the **UCI Bank Marketing Dataset**.
 
-Rows: ~45,000
-Target variable: y (yes/no → mapped to 1/0)
-Features: Age, job, marital status, balance, loan status, contact type, campaign history, etc.
-Leakage removal: duration feature is excluded from model training to prevent leakage.
+A Streamlit web app is developed to allow users to:
 
-Only a small sample test CSV (~200 rows) is included in this repository for Streamlit evaluation.
+- Upload a **test dataset** (CSV)  
+- Select a **pre‑trained ML model**  
+- View **evaluation metrics**  
+- Inspect **confusion matrix** and **classification report**  
+- Download predictions when no target column is present  
 
-🛠️ 3. Models Used (Pre‑trained)
-The following ML models were trained offline and saved as .joblib files:
+Model training is done offline in a Jupyter notebook.  
+The Streamlit application performs **inference only**.
 
-Logistic Regression
-Decision Tree Classifier
-K‑Nearest Neighbors (KNN) (optional if file is small enough)
-Naive Bayes
-Random Forest (excluded from repo if >100MB)
-XGBoost Classifier
+---
 
-Only small model artifacts are included in the repo to ensure Streamlit Cloud performance.
+# 🅑 Dataset Description *(1 mark)*
 
-🌐 4. Streamlit App Features
-The deployed web app includes:
-✔ a. Upload Test Dataset (CSV)
+The dataset used is the **UCI Bank Marketing Dataset**, sourced from direct marketing phone campaigns conducted by a Portuguese bank.
 
-Only test data is uploaded (no full training data).
-CSV separator (; or ,) is auto‑detected.
+### Key Details:
+- **Rows:** ~45,000  
+- **Separator:** `;`  
+- **Target Variable:** `y` (mapped: yes → 1, no → 0)  
+- **Features:** age, job, marital status, education, balance, housing loan, campaign statistics, etc.  
+- **Important Note:** The `duration` column is removed during training because it introduces **data leakage** (it is only known after the call ends).  
 
-✔ b. Model Selection Dropdown
+A small **balanced test file (~200 rows)** is included in `data/test_sample.csv` for Streamlit demo usage (due to free‑tier resource limits).
 
-Shows full model names (e.g., “Logistic Regression”).
+---
 
-✔ c. Evaluation Metrics Display
-Includes:
+# 🅒 Models Used & Comparison Table *(6 marks)*  
 
-Accuracy
-AUC
-Precision
-Recall
-F1‑Score
-Matthews Correlation Coefficient (MCC)
+The following **six models** were trained:
 
-✔ d. Confusion Matrix Visualization
+- Logistic Regression  
+- Decision Tree  
+- K‑Nearest Neighbors (KNN)  
+- Naive Bayes  
+- Random Forest (Ensemble)  
+- XGBoost (Ensemble)  
 
-Compact custom rendering
-Helps understand class‑wise prediction performance
+---
 
-✔ e. Classification Report
-Displayed at the bottom (expanded by default).
+## 📊 Comparison Table (Evaluation Metrics for All 6 Models)
+
+| **ML Model** | **Accuracy** | **AUC** | **Precision** | **Recall** | **F1** | **MCC** |
+|--------------|-------------:|--------:|--------------:|-----------:|-------:|--------:|
+| **XGBoost (Ensemble)**         | 0.8122 | 0.8017 | 0.6429 | 0.7379 | 0.6655 | 0.3687 |
+| **Random Forest (Ensemble)**   | 0.8293 | 0.7983 | 0.6507 | 0.7266 | 0.6736 | 0.3696 |
+| **Logistic Regression**        | 0.7548 | 0.7722 | 0.6028 | 0.6980 | 0.6104 | 0.2853 |
+| **Naive Bayes**                | 0.8410 | 0.7558 | 0.6458 | 0.6841 | 0.6608 | 0.3277 |
+| **KNN**                        | 0.8874 | 0.7027 | 0.7275 | 0.5882 | 0.6150 | 0.2833 |
+| **Decision Tree**              | 0.8405 | 0.6071 | 0.6102 | 0.6071 | 0.6086 | 0.2174 |
+
+---
+
+# 🅓 Observations on Model Performance *(3 marks)*
+
+| **ML Model** | **Observation about model performance** |
+|--------------|------------------------------------------|
+| **Logistic Regression** | Performs well as a baseline. Good AUC (0.77). Handles linear patterns effectively. Struggles with non‑linear boundaries. |
+| **Decision Tree** | Simple and interpretable but prone to overfitting. Lowest AUC (0.61). Weak generalization. |
+| **KNN** | Highest accuracy (0.8874) but lower recall. Sensitive to scaling and class imbalance; tends to miss positive cases. |
+| **Naive Bayes** | Consistent and fast. Performs well despite strong assumptions. Good recall and balanced metrics. |
+| **Random Forest (Ensemble)** | Stable, strong model. Excellent AUC (0.7983). Good precision/recall balance. Resistant to overfitting. |
+| **XGBoost (Ensemble)** | **Highest AUC (0.8017)** and strong recall. Captures complex non‑linear relationships. Best overall balanced model. |
+
+---
+
+# 📘 Project Overview
+
+This project applies various ML classifiers to predict term deposit subscription using Python and scikit-learn — deployed using Streamlit.
+
+The app provides:
+
+- Evaluation metrics  
+- Confusion matrices  
+- Classification reports  
+- Clean UI to test multiple ML models  
+
+---
+
+# 📂 Repository Structure
 Includes:
 
 Precision
